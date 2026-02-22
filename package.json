@@ -1,0 +1,18 @@
+{
+  "name": "public-api-validation",
+  "version": "1.0.0",
+  "description": "BDD API Testing Framework",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "cucumber-js",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.6.0",
+    "chai": "^6.2.2",
+    "prettier": "3.8.1",
+    "supertest": "^7.2.2"
+  }
+}
