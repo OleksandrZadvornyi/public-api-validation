@@ -1,8 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
-import request from 'supertest';
-
-const BASE_URL = 'https://fakestoreapi.com';
+import { apiClient } from '../../src/api/apiClient.js';
 
 Given('the API endpoint is {string}', function (endpoint) {
   // Store the endpoint in the World context
@@ -11,7 +9,7 @@ Given('the API endpoint is {string}', function (endpoint) {
 
 When('I send a GET request to the endpoint', async function () {
   // Make the request and store the response in the World context
-  this.response = await request(BASE_URL).get(this.endpoint);
+  this.response = await apiClient.get(this.endpoint);
 });
 
 Then('the response status code should be {int}', function (statusCode) {
