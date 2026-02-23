@@ -17,7 +17,7 @@ Then('the response status code should be {int}', function (statusCode) {
   expect(this.response.status).to.equal(statusCode);
 });
 
-Then('the response should contain a list of products', function () {
+Then('the response should contain a list of items', function () {
   // Assert the response body is an array and is not empty
   expect(this.response.body).to.be.an('array');
   expect(this.response.body.length).to.be.greaterThan(0);
