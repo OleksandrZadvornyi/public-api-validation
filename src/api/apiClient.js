@@ -6,8 +6,16 @@ export const apiClient = {
   get: async (endpoint) => {
     return await request(BASE_URL)
       .get(endpoint)
-      .set('Accept', 'application/json'); // Centralized headers can be added here
+      .set('Accept', 'application/json');
   },
 
-  // TODO: add post, put, and delete methods here
+  post: async (endpoint, payload) => {
+    return await request(BASE_URL)
+      .post(endpoint)
+      .send(payload)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+  },
+
+  // TODO: add put, and delete methods here
 };
