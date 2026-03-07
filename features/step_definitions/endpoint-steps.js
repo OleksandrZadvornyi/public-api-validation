@@ -57,15 +57,13 @@ When(
   }
 );
 
-Then('the response should contain the updated product details', function () {
-  expect(this.response.body.title).to.equal(this.payload.title);
-  expect(this.response.body.price).to.equal(this.payload.price);
-});
-
-Then('the response should contain the created product details', function () {
-  expect(this.response.body.title).to.equal(this.payload.title);
-  expect(this.response.body.price).to.equal(this.payload.price);
-});
+Then(
+  'the response should contain the {word} product details',
+  function (action) {
+    expect(this.response.body.title).to.equal(this.payload.title);
+    expect(this.response.body.price).to.equal(this.payload.price);
+  }
+);
 
 When('I send a DELETE request to {string}', async function (endpoint) {
   this.response = await apiClient.delete(endpoint);

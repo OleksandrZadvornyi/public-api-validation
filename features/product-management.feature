@@ -7,13 +7,13 @@ Feature: Product Modification and Deletion
     Given I have a valid payload to create a product
     When I send a POST request to "/products" with the payload
     Then the response status code should be 201
-    And the response should contain the created product details
+    And the response should contain the "created" product details
 
   Scenario: Successfully update an existing product
     Given I have a valid payload to update a product
     When I send a PUT request to "/products/1" with the payload
     Then the response status code should be 200
-    And the response should contain the updated product details
+    And the response should contain the "updated" product details
 
   Scenario: Successfully delete a product
     When I send a DELETE request to "/products/1"
