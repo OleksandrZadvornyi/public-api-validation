@@ -4,6 +4,7 @@ class CustomWorld {
   constructor() {
     this.endpoint = '';
     this.response = null;
+    this.payload = null;
   }
 }
 
