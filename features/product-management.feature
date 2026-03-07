@@ -1,6 +1,6 @@
 Feature: Product Modification and Deletion
   As an API consumer
-  I want to update and delete existing products
+  I want to create, update and delete existing products
   So that I can manage the store inventory
 
   Scenario: Successfully update an existing product

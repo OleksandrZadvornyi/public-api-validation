@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
-import { apiClient } from '../../src/api/apiClient.js';
+import { apiClient } from '../../src/api/api-client.js';
 
 Given('the API endpoint is {string}', function (endpoint) {
   // Store the endpoint in the World context
