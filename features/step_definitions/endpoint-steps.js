@@ -33,6 +33,16 @@ Given('I have a valid payload to update a product', function () {
   };
 });
 
+Given('I have a valid payload to create a product', function () {
+  this.payload = {
+    title: 'Created Test Product',
+    price: 35.0,
+    description: 'This product was created during automated testing',
+    image: 'https://i.pravatar.cc',
+    category: 'clothing',
+  };
+});
+
 When(
   'I send a PUT request to {string} with the payload',
   async function (endpoint) {
@@ -40,7 +50,19 @@ When(
   }
 );
 
+When(
+  'I send a POST request to {string} with the payload',
+  async function (endpoint) {
+    this.response = await apiClient.post(endpoint, this.payload);
+  }
+);
+
 Then('the response should contain the updated product details', function () {
+  expect(this.response.body.title).to.equal(this.payload.title);
+  expect(this.response.body.price).to.equal(this.payload.price);
+});
+
+Then('the response should contain the created product details', function () {
   expect(this.response.body.title).to.equal(this.payload.title);
   expect(this.response.body.price).to.equal(this.payload.price);
 });
