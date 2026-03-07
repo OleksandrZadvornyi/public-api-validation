@@ -1,6 +1,7 @@
 import request from 'supertest';
+import { environment } from '../config/env.js';
 
-const BASE_URL = 'https://fakestoreapi.com';
+const BASE_URL = environment.baseURL;
 
 export const apiClient = {
   get: async (endpoint) => {
