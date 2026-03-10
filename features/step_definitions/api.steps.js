@@ -14,8 +14,14 @@ When('I send a {word} request', async function (method) {
   this.response = response;
 });
 
-When('I send a POST request with payload:', async function (docString) {
-  this.payload = JSON.parse(docString);
+When(
+  'I send a {word} request with payload:',
+  async function (method, docString) {
+    this.payload = JSON.parse(docString);
 
-  this.response = await apiClient.post(this.endpoint, this.payload);
-});
+    this.response = await apiClient[method.toLowerCase()](
+      this.endpoint,
+      this.payload
+    );
+  }
+);
