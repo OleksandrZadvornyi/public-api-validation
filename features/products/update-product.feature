@@ -1,4 +1,4 @@
-Feature: Update a New Product
+Feature: Update a Product
   As an API consumer
   I want to update an existing product using the API
   So I can modify product information in the catalog
