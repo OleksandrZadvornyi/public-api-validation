@@ -17,3 +17,14 @@ Then('the response body should contain:', function (dataTable) {
     }
   });
 });
+
+Then(
+  'the response body should contain a {string} array with {int} items',
+  function (field, count) {
+    const body = this.response.body;
+
+    expect(body).to.have.property(field);
+    expect(body[field]).to.be.an('array');
+    expect(body[field]).to.have.lengthOf(count);
+  }
+);
