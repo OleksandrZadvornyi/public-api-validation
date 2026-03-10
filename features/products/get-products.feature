@@ -14,9 +14,9 @@ Feature: Retrieve products
     When I send a GET request
     Then the response status should be 200
     And the response body should contain:
-    | field       |
-    | title       |
-    | price       |
-    | description |
-    | category    | 
-    | image       |
+      | field       |
+      | title       |
+      | price       |
+      | description |
+      | category    | 
+      | image       |

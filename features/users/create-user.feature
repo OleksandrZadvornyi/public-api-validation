@@ -13,4 +13,4 @@ Feature: Add a New User
       "password": "string"
     }
     """
-  Then the response status should be 201
+    Then the response status should be 201

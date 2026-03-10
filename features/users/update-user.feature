@@ -13,9 +13,9 @@ Feature: Update a User
       "password": "updatedpassword"
     }
     """
-  Then the response status should be 200
-  And the response body should contain:
-    | field       | value                     |
-    | username    | updateduser               |
-    | email       | updateduser@example.com   |
-    | password    | updatedpassword           |
+    Then the response status should be 200
+    And the response body should contain:
+      | field       | value                     |
+      | username    | updateduser               |
+      | email       | updateduser@example.com   |
+      | password    | updatedpassword           |
