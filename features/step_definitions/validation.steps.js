@@ -1,7 +1,7 @@
 import { Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
 
-Then('the response should be a list of products', function () {
+Then('the response should be a list of {word}', function (list) {
   expect(this.response.body).to.be.an('array');
 });
 
