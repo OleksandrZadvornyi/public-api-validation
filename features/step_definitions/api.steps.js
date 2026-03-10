@@ -1,5 +1,4 @@
-import { Given, When, Then } from '@cucumber/cucumber';
-import { expect } from 'chai';
+import { Given, When } from '@cucumber/cucumber';
 import { apiClient } from '../../src/api/api-client.js';
 
 Given('the API endpoint is {string}', function (endpoint) {
@@ -13,4 +12,10 @@ When('I send a {word} request', async function (method) {
   );
 
   this.response = response;
+});
+
+When('I send a POST request with payload:', async function (docString) {
+  this.payload = JSON.parse(docString);
+
+  this.response = await apiClient.post(this.endpoint, this.payload);
 });

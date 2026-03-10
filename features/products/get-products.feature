@@ -1,4 +1,7 @@
 Feature: Retrieve products
+  As an API consumer
+  I want to retrieve products from the API
+  So I can view the available products and their details
 
   Scenario: Get all products
     Given the API endpoint is "/products"
@@ -10,4 +13,5 @@ Feature: Retrieve products
     Given the API endpoint is "/products/1"
     When I send a GET request
     Then the response status should be 200
-    And the product should contain "title" and "price"
+    And the response body should contain the field "title" 
+    And the response body should contain the field "price"

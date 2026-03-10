@@ -1,15 +1,23 @@
-import { Given, When, Then } from '@cucumber/cucumber';
+import { Then } from '@cucumber/cucumber';
 import { expect } from 'chai';
-import { apiClient } from '../../src/api/api-client.js';
 
 Then('the response should be a list of products', function () {
   expect(this.response.body).to.be.an('array');
 });
 
-Then(
-  'the product should contain {string} and {string}',
-  function (title, price) {
-    expect(this.response.body).to.have.property(title);
-    expect(this.response.body).to.have.property(price);
-  }
-);
+Then('the response body should contain the field {string}', function (field) {
+  expect(this.response.body).to.have.property(field);
+});
+
+Then('the response body should contain:', function (dataTable) {
+  const expectedFields = dataTable.hashes();
+  const body = this.response.body;
+
+  expectedFields.forEach(({ field, value }) => {
+    expect(body).to.have.property(field);
+
+    if (value !== undefined) {
+      expect(String(body[field])).to.equal(String(value));
+    }
+  });
+});
