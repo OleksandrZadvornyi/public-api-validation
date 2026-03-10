@@ -13,5 +13,10 @@ Feature: Retrieve products
     Given the API endpoint is "/products/1"
     When I send a GET request
     Then the response status should be 200
-    And the response body should contain the field "title" 
-    And the response body should contain the field "price"
+    And the response body should contain:
+    | field       |
+    | title       |
+    | price       |
+    | description |
+    | category    | 
+    | image       |

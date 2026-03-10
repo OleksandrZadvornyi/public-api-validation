@@ -5,10 +5,6 @@ Then('the response should be a list of products', function () {
   expect(this.response.body).to.be.an('array');
 });
 
-Then('the response body should contain the field {string}', function (field) {
-  expect(this.response.body).to.have.property(field);
-});
-
 Then('the response body should contain:', function (dataTable) {
   const expectedFields = dataTable.hashes();
   const body = this.response.body;
